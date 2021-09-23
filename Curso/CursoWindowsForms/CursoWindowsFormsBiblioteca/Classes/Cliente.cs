@@ -14,6 +14,8 @@ namespace CursoWindowsFormsBiblioteca.Classes
     {
         public class Unit
         {
+            private string _nome; //Exemplo de como alterar variáveis usando o get e o set;
+
             [Required(ErrorMessage = "Código do Cliente é obrigatório.")]
             [RegularExpression("([0-9]+)", ErrorMessage = "Código do Cliente somente aceita valores numéricos.")]
             [StringLength(6, MinimumLength = 6, ErrorMessage = "Código do Cliente deve ter 6 dígitos.")]
@@ -21,7 +23,7 @@ namespace CursoWindowsFormsBiblioteca.Classes
 
             [Required(ErrorMessage = "Nome do Cliente é obrigatório.")]
             [StringLength(50, ErrorMessage = "Nome do Cliente deve ter no máximo 50 caracteres.")]
-            public string Nome { get; set; }
+            public string Nome { get => _nome; set { _nome = value.Trim(); } } //Exemplo de como alterar variáveis usando o get e o set;
 
             [StringLength(50, ErrorMessage = "Nome do Pai deve ter no máximo 50 caracteres.")]
             public string NomePai { get; set; }
